@@ -43,6 +43,18 @@ section{padding:42px 0}.section-head{display:flex;align-items:end;justify-conten
     <article class="card"><div class="art"><div class="avatar-art">SEU<br>LOGO</div></div><h3>Foto de perfil</h3><p>Uma arte personalizada para seu perfil de jogo ou rede social.</p><div class="price-row"><div class="price">R$ 5,00 <small>/ arte</small></div><a class="btn order" data-product="Foto de perfil — R$ 5,00" href="#contato">Pedir</a></div></article>
     <article class="card"><div class="art"><div class="banner-art">SEU <span>CANAL</span></div></div><h3>Banner personalizado</h3><p>Um banner com seu nome, tema e cores para seu canal ou comunidade.</p><div class="price-row"><div class="price">R$ 7,00 <small>/ arte</small></div><a class="btn order" data-product="Banner personalizado — R$ 7,00" href="#contato">Pedir</a></div></article>
   </div>
+    <article class="card">
+      <div class="art">
+        <div class="banner-art">DRKGP <span>COMBO</span></div>
+      </div>
+      <h3>Pacote completo</h3>
+      <p>Leve uma foto de perfil e um banner personalizados no mesmo pedido.</p>
+      <div class="price-row">
+        <div class="price">R$ 10,00 <small>/ pacote</small></div>
+        <a class="btn order" data-product="Pacote completo: banner + foto de perfil — R$ 10,00" href="#contato">Pedir os dois</a>
+      </div>
+    </article>
+
   <div class="notice">As artes são feitas sob encomenda. Combine os detalhes e o prazo antes de confirmar o pedido.</div>
 </div></section>
 <section id="como-funciona"><div class="wrap">
@@ -64,13 +76,15 @@ const WHATSAPP_NUMBER = "5531992657902";
 function whatsappLink(message){
   return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
 }
-document.getElementById("contactButton").href = whatsappLink("Olá! Vim pela loja DRKGP Edits e quero saber mais sobre os serviços.");
-document.querySelectorAll(".order").forEach(button=>{
-  button.addEventListener("click",()=>{
-    const product=button.dataset.product;
-    document.getElementById("contactButton").href=whatsappLink("Olá! Vim pela loja DRKGP Edits e quero pedir: "+product+".");
+
+document.querySelectorAll(".order").forEach(button => {
+  button.addEventListener("click", () => {
+    const product = button.dataset.product;
+    const message = "Olá! Vim pela loja DRKGP Edits e quero pedir: " + product + ".";
+    window.open(whatsappLink(message), "_blank");
   });
 });
+
 </script>
 </body>
 </html>
